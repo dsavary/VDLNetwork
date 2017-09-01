@@ -23,7 +23,7 @@
 from PyQt4.QtCore import (QSettings, QTranslator, qVersion, QCoreApplication)
 from PyQt4.QtGui import (QAction, QIcon)
 from .tools.show_settings import ShowSettings
-#from .tools.control_tool import ControlTool
+from .tools.control_tool import ControlTool
 
 # Initialize Qt resources from file resources.py
 import resources
@@ -176,8 +176,11 @@ class VDLNetwork:
             callback=self.run,
             parent=self.iface.mainWindow())
         self.showSettings = ShowSettings(self.iface)
-        icon_path2 = ':/plugins/VDLNetwork/icons/settings_icon.png'
-        self.add_action(icon_path2,u"Paramètres",self.showSettings.start, True,True,False,'','',self.iface.mainWindow())
+        self.add_action(':/plugins/VDLNetwork/icons/settings_icon.png',u"Paramètres",self.showSettings.start, True,True,False,'','',self.iface.mainWindow())
+        self.controlTool = ControlTool(self.iface)
+        self.add_action(':/plugins/VDLNetwork/icons/control_icon.png',"Make control requests on selected area",self.controlTool.setTool,True,True,True,'','',self.iface.mainWindow())
+        self.controlTool.ownSettings = self.showSettings
+
 
 
     def unload(self):

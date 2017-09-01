@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225c1869-cf9c-4fb8-8e32-846781b9f9ce" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\cada0093\.qgis2\python\plugins\VDLNetwork\i18n\VDLTools.pro" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\cada0093\.qgis2\python\plugins\VDLNetwork\i18n\VDLTools_fr.qm" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\cada0093\.qgis2\python\plugins\VDLNetwork\i18n\VDLTools_fr.ts" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VDLNetwork.py" afterPath="$PROJECT_DIR$/VDLNetwork.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/db_connector.py" afterPath="$PROJECT_DIR$/core/db_connector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/control_tool.py" afterPath="$PROJECT_DIR$/tools/control_tool.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources.py" afterPath="$PROJECT_DIR$/resources.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources.qrc" afterPath="$PROJECT_DIR$/resources.qrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/show_settings.py" afterPath="$PROJECT_DIR$/tools/show_settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/show_settings_dialog.py" afterPath="$PROJECT_DIR$/ui/show_settings_dialog.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="VDLNetwork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="VDLNetwork.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VDLNetwork.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VDLNetwork.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46819603">
-              <caret line="179" column="37" selection-start-line="179" selection-start-column="37" selection-end-line="179" selection-end-column="37" />
+            <state vertical-scroll-proportion="-7.448276">
+              <caret line="181" column="56" selection-start-line="181" selection-start-column="56" selection-end-line="181" selection-end-column="56" />
               <folding>
                 <element signature="e#1182#1259#0" expanded="true" />
               </folding>
@@ -47,8 +41,32 @@
       <file leaf-file-name="control_tool.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/control_tool.py">
           <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.862069">
+              <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
+              <folding>
+                <element signature="e#1185#1216#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db_connector.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/db_connector.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-49.827587">
+              <caret line="85" column="36" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
+              <folding>
+                <element signature="e#1197#1231#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="area_tool.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/area_tool.py">
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -57,18 +75,20 @@
       <file leaf-file-name="show_settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/show_settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="11.0172415">
-              <caret line="33" column="28" selection-start-line="336" selection-start-column="46" selection-end-line="336" selection-end-column="56" />
-              <folding />
+            <state vertical-scroll-proportion="-14.275862">
+              <caret line="126" column="13" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="18" />
+              <folding>
+                <element signature="e#1197#1230#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show_settings_dialog.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="show_settings_dialog.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ui/show_settings_dialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.9310346">
-              <caret line="277" column="47" selection-start-line="277" selection-start-column="47" selection-end-line="277" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.43218625">
+              <caret line="359" column="8" selection-start-line="359" selection-start-column="8" selection-end-line="359" selection-end-column="13" />
               <folding>
                 <element signature="e#1197#1229#0" expanded="true" />
               </folding>
@@ -81,7 +101,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#1199#1341#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,8 +122,9 @@
         <option value="$PROJECT_DIR$/ui/fields_settings_dialog.py" />
         <option value="$PROJECT_DIR$/core/db_connector.py" />
         <option value="$PROJECT_DIR$/ui/show_settings_dialog.py" />
-        <option value="$PROJECT_DIR$/resources.qrc" />
         <option value="$PROJECT_DIR$/VDLNetwork.py" />
+        <option value="$PROJECT_DIR$/resources.qrc" />
+        <option value="$PROJECT_DIR$/tools/control_tool.py" />
       </list>
     </option>
   </component>
@@ -396,18 +419,18 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/tools/area_tool.py</url>
+          <line>22</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tools/control_tool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -440,14 +463,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/db_connector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3649635">
-          <caret line="86" column="11" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/signal.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -464,7 +479,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources.qrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11701082">
+          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VDLNetwork.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.448276">
+          <caret line="181" column="56" selection-start-line="181" selection-start-column="56" selection-end-line="181" selection-end-column="56" />
+          <folding>
+            <element signature="e#1182#1259#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ui/fields_settings_dialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="e#1199#1341#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/area_tool.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
@@ -472,38 +515,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/show_settings_dialog.py">
+    <entry file="file://$PROJECT_DIR$/core/db_connector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9310346">
-          <caret line="277" column="47" selection-start-line="277" selection-start-column="47" selection-end-line="277" selection-end-column="47" />
+        <state vertical-scroll-proportion="-49.827587">
+          <caret line="85" column="36" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
           <folding>
-            <element signature="e#1197#1229#0" expanded="true" />
+            <element signature="e#1197#1231#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/control_tool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.862069">
+          <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
+          <folding>
+            <element signature="e#1185#1216#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/show_settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="11.0172415">
-          <caret line="33" column="28" selection-start-line="336" selection-start-column="46" selection-end-line="336" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources.qrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11701082">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VDLNetwork.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46819603">
-          <caret line="179" column="37" selection-start-line="179" selection-start-column="37" selection-end-line="179" selection-end-column="37" />
+        <state vertical-scroll-proportion="-14.275862">
+          <caret line="126" column="13" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="18" />
           <folding>
-            <element signature="e#1182#1259#0" expanded="true" />
+            <element signature="e#1197#1230#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/show_settings_dialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43218625">
+          <caret line="359" column="8" selection-start-line="359" selection-start-column="8" selection-end-line="359" selection-end-column="13" />
+          <folding>
+            <element signature="e#1197#1229#0" expanded="true" />
           </folding>
         </state>
       </provider>

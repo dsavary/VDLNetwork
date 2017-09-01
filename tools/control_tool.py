@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """
 /***************************************************************************
- VDLTools
+ VDLNetwork
                                  A QGIS plugin for the Ville de Lausanne
                               -------------------
-        begin                : 2017-02-14
+        begin                : 2017-08-21
         git sha              : $Format:%H$
         copyright            : (C) 2016 Ville de Lausanne
-        author               : Christophe Gusthiot
-        email                : christophe.gusthiot@lausanne.ch
+        author               : Daniel Savary
+        email                : daniel.savary@lausanne.ch
  ***************************************************************************/
 
 /***************************************************************************
@@ -53,25 +53,25 @@ class ControlTool(AreaTool):
         """
         AreaTool.__init__(self, iface)
         self.__iface = iface
-        self.icon_path = ':/plugins/VDLTools/icons/control_icon.png'
-        self.text = QCoreApplication.translate("VDLTools", "Make control requests on selected area")
+        self.icon_path = ':/plugins/VDLNetwork/icons/control_icon.png'
+        self.text = QCoreApplication.translate("VDLNetwork", "Make control requests on selected area")
         self.releasedSignal.connect(self.__released)
         self.__chooseDlg = None
         self.__db = None
         self.ownSettings = None
         self.__crs = None
-        self.__registry = QgsMapLayerRegistry.instance() # définition du registre des couches dans le projet
-        self.tableConfig = 'usr_control_request' # nom de la table/couche dans le projet qui liste tous les contrôles possible
-        self.__layerCfgControl = None
-        self.__lrequests = [] # liste des requêtes actives
-        self.areaMax = 1000000 # tolérance de surface max. pour lancer un contrôle
+        self.__registry = QgsMapLayerRegistry.instance()        # définition du registre des couches dans le projet
+        self.tableConfig = 'usr_control_request'                # nom de la table dans la base de données qui liste tous les contrôles possible
+        self.__layerCfgControl = None                           # nom de la couche dans le projet qui correspond à la table de la liste des contrôles
+        self.__lrequests = []                                   # liste des requêtes actives
+        self.areaMax = 1000000                                  # tolérance de surface max. pour lancer un contrôle
 
     def toolName(self):
         """
         To get the tool name
         :return: tool name
         """
-        return QCoreApplication.translate("VDLTools", "Control")
+        return QCoreApplication.translate("VDLNetwork", "Control")
 
     def setTool(self):
         """
@@ -84,11 +84,11 @@ class ControlTool(AreaTool):
         When selection is complete
         """
         if self.ownSettings is None:
-            self.__iface.messageBar().pushMessage(QCoreApplication.translate("VDLTools", "No settings given !!"),
+            self.__iface.messageBar().pushMessage(QCoreApplication.translate("VDLNetwork", "No settings given !!"),
                                                   level=QgsMessageBar.CRITICAL, duration=0)
             return
         if self.ownSettings.ctlDb is None:
-            self.__iface.messageBar().pushMessage(QCoreApplication.translate("VDLTools", "No control db given !!"),
+            self.__iface.messageBar().pushMessage(QCoreApplication.translate("VDLNetwork", "No control db given !!"),
                                                   level=QgsMessageBar.CRITICAL, duration=0)
             return
         """
