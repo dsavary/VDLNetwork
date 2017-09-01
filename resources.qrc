@@ -2,4 +2,7 @@
     <qresource prefix="/plugins/VDLNetwork" >
         <file>icon.png</file>
     </qresource>
+    <qresource prefix="/plugins/VDLNetwork" >
+        <file>icons/settings_icon.png</file>
+    </qresource>
 </RCC>

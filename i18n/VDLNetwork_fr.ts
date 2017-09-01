@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="fr_FR">
 <context>
-    <name>VDLTools</name>
+    <name>VDLNetwork</name>
     <message>
         <location filename="../tools/duplicate_tool.py" line="68"/>
         <source>Duplicate a feature</source>

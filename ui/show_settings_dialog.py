@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 /***************************************************************************
- VDLTools
+ VDLNetwork
                                  A QGIS plugin for the Ville de Lausanne
                               -------------------
         begin                : 2016-06-20
@@ -60,7 +60,7 @@ class ShowSettingsDialog(QDialog):
         self.__uriDb = uriDb
         self.__schemaDb = schemaDb
         self.__mntUrl = mntUrl
-        self.setWindowTitle(QCoreApplication.translate("VDLTools", "Settings"))
+        self.setWindowTitle(QCoreApplication.translate("VDLNetwork", "Settings"))
         self.__pointsLayers = []
         self.__linesLayers = []
         self.__tables = []
@@ -76,7 +76,7 @@ class ShowSettingsDialog(QDialog):
         self.resize(450, 200)
         self.__layout = QGridLayout()
 
-        pointLabel = QLabel(QCoreApplication.translate("VDLTools", "Working points layer : "))
+        pointLabel = QLabel(QCoreApplication.translate("VDLNetwork", "Working points layer : "))
         pointLabel.setMinimumHeight(20)
         pointLabel.setMinimumWidth(50)
         self.__layout.addWidget(pointLabel, 0, 1)
@@ -93,7 +93,7 @@ class ShowSettingsDialog(QDialog):
             if self.__memoryPointsLayer in self.__pointsLayers:
                 self.__pointCombo.setCurrentIndex(self.__pointsLayers.index(self.__memoryPointsLayer)+1)
 
-        lineLabel = QLabel(QCoreApplication.translate("VDLTools", "Working lines layer : "))
+        lineLabel = QLabel(QCoreApplication.translate("VDLNetwork", "Working lines layer : "))
         lineLabel.setMinimumHeight(20)
         lineLabel.setMinimumWidth(50)
         self.__layout.addWidget(lineLabel, 1, 1)
@@ -110,7 +110,7 @@ class ShowSettingsDialog(QDialog):
             if self.__memoryLinesLayer in self.__linesLayers:
                 self.__lineCombo.setCurrentIndex(self.__linesLayers.index(self.__memoryLinesLayer)+1)
 
-        dbLabel = QLabel(QCoreApplication.translate("VDLTools", "Import database : "))
+        dbLabel = QLabel(QCoreApplication.translate("VDLNetwork", "Import database : "))
         dbLabel.setMinimumHeight(20)
         dbLabel.setMinimumWidth(50)
         self.__layout.addWidget(dbLabel, 2, 1)
@@ -123,7 +123,7 @@ class ShowSettingsDialog(QDialog):
             self.__dbCombo.addItem(db)
         self.__layout.addWidget(self.__dbCombo, 2, 2)
 
-        schemaLabel = QLabel(QCoreApplication.translate("VDLTools", "Database schema : "))
+        schemaLabel = QLabel(QCoreApplication.translate("VDLNetwork", "Database schema : "))
         schemaLabel.setMinimumHeight(20)
         schemaLabel.setMinimumWidth(50)
         self.__layout.addWidget(schemaLabel, 3, 1)
@@ -134,7 +134,7 @@ class ShowSettingsDialog(QDialog):
         self.__schemaCombo.addItem("")
         self.__layout.addWidget(self.__schemaCombo, 3, 2)
 
-        tableLabel = QLabel(QCoreApplication.translate("VDLTools", "Config table : "))
+        tableLabel = QLabel(QCoreApplication.translate("VDLNetwork", "Config table : "))
         tableLabel.setMinimumHeight(20)
         tableLabel.setMinimumWidth(50)
         self.__layout.addWidget(tableLabel, 4, 1)
@@ -145,7 +145,7 @@ class ShowSettingsDialog(QDialog):
         self.__tableCombo.addItem("")
         self.__layout.addWidget(self.__tableCombo, 4, 2)
 
-        mntLabel = QLabel(QCoreApplication.translate("VDLTools", "Url for MNT : "))
+        mntLabel = QLabel(QCoreApplication.translate("VDLNetwork", "Url for MNT : "))
         schemaLabel.setMinimumHeight(20)
         schemaLabel.setMinimumWidth(50)
         self.__layout.addWidget(mntLabel, 5, 1)
@@ -159,7 +159,7 @@ class ShowSettingsDialog(QDialog):
         self.__mntText.setMinimumWidth(100)
         self.__layout.addWidget(self.__mntText, 5, 2)
 
-        ctlLabel = QLabel(QCoreApplication.translate("VDLTools", "Control database : "))
+        ctlLabel = QLabel(QCoreApplication.translate("VDLNetwork", "Control database : "))
         ctlLabel.setMinimumHeight(20)
         ctlLabel.setMinimumWidth(50)
         self.__layout.addWidget(ctlLabel, 6, 1)
@@ -172,11 +172,11 @@ class ShowSettingsDialog(QDialog):
             self.__ctlCombo.addItem(db)
         self.__layout.addWidget(self.__ctlCombo, 6, 2)
 
-        self.__okButton = QPushButton(QCoreApplication.translate("VDLTools", "OK"))
+        self.__okButton = QPushButton(QCoreApplication.translate("VDLNetwork", "OK"))
         self.__okButton.setMinimumHeight(20)
         self.__okButton.setMinimumWidth(100)
 
-        self.__cancelButton = QPushButton(QCoreApplication.translate("VDLTools", "Cancel"))
+        self.__cancelButton = QPushButton(QCoreApplication.translate("VDLNetwork", "Cancel"))
         self.__cancelButton.setMinimumHeight(20)
         self.__cancelButton.setMinimumWidth(100)
 

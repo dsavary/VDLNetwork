@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 /***************************************************************************
- VDLTools
+ VDLNetwork
                                  A QGIS plugin for the Ville de Lausanne
                               -------------------
         begin                : 2016-07-18
@@ -94,7 +94,7 @@ class DBConnector(object):
         ok = db.open()
         if not ok:
             self.__iface.messageBar().pushMessage(
-                QCoreApplication.translate("VDLTools", "Database Error: ") + db.lastError().text(),
+                QCoreApplication.translate("VDLNetwork", "Database Error: ") + db.lastError().text(),
                 level=QgsMessageBar.CRITICAL, duration=0)
             return None
         return db

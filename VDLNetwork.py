@@ -20,13 +20,18 @@
  *                                                                         *
  ***************************************************************************/
 """
-from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication
-from PyQt4.QtGui import QAction, QIcon
+from PyQt4.QtCore import (QSettings, QTranslator, qVersion, QCoreApplication)
+from PyQt4.QtGui import (QAction, QIcon)
+from .tools.show_settings import ShowSettings
+#from .tools.control_tool import ControlTool
+
 # Initialize Qt resources from file resources.py
 import resources
 # Import the code for the dialog
 from VDLNetwork_dialog import VDLNetworkDialog
 import os.path
+
+
 
 
 class VDLNetwork:
@@ -42,6 +47,9 @@ class VDLNetwork:
         """
         # Save reference to the QGIS interface
         self.iface = iface
+        self.mapCanvas = iface.mapCanvas()
+        self.controlTool = None
+        self.showSettings = None
         # initialize plugin directory
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
@@ -167,6 +175,9 @@ class VDLNetwork:
             text=self.tr(u'VDLNetwork'),
             callback=self.run,
             parent=self.iface.mainWindow())
+        self.showSettings = ShowSettings(self.iface)
+        icon_path2 = ':/plugins/VDLNetwork/icons/settings_icon.png'
+        self.add_action(icon_path2,u"Paramètres",self.showSettings.start, True,True,False,'','',self.iface.mainWindow())
 
 
     def unload(self):

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 /***************************************************************************
- VDLTools
+ VDLNetwork
                                  A QGIS plugin for the Ville de Lausanne
                               -------------------
         begin                : 2016-06-20
@@ -47,8 +47,8 @@ class ShowSettings(object):
         :param iface: interface
         """
         self.__iface = iface
-        self.icon_path = ':/plugins/VDLTools/icons/settings_icon.png'
-        self.text = QCoreApplication.translate("VDLTools", "Settings")
+        self.icon_path = ':/plugins/VDLNetwork/icons/settings_icon.png'
+        self.text = QCoreApplication.translate("VDLNetwork", "Settings")
         self.__showDlg = None
         self.__ctlDb = None
         self.__configTable = None
@@ -68,25 +68,25 @@ class ShowSettings(object):
         """
 
         """ Url used to get mnt values on a line """
-        self.__mntUrl = QgsProject.instance().readEntry("VDLTools", "mnt_url", "None")[0]
+        self.__mntUrl = QgsProject.instance().readEntry("VDLNetwork", "mnt_url", "None")[0]
 
         """ Config table in Database for importing new Lausanne data """
-        self.__configTable = QgsProject.instance().readEntry("VDLTools", "config_table", None)[0]
+        self.__configTable = QgsProject.instance().readEntry("VDLNetwork", "config_table", None)[0]
 
         """ Database used for importing new Lausanne data """
-        dbName = QgsProject.instance().readEntry("VDLTools", "db_name", None)[0]
+        dbName = QgsProject.instance().readEntry("VDLNetwork", "db_name", None)[0]
 
         """ Table in Database containing control values for importing new Lausanne data """
-        ctlDbName = QgsProject.instance().readEntry("VDLTools", "ctl_db_name", None)[0]
+        ctlDbName = QgsProject.instance().readEntry("VDLNetwork", "ctl_db_name", None)[0]
 
         """ Schema of the Database used for importing new Lausanne data """
-        self.__schemaDb = QgsProject.instance().readEntry("VDLTools", "schema_db", None)[0]
+        self.__schemaDb = QgsProject.instance().readEntry("VDLNetwork", "schema_db", None)[0]
 
         """ Temporarly points layer for the project """
-        mpl_id = QgsProject.instance().readEntry("VDLTools", "memory_points_layer", None)[0]
+        mpl_id = QgsProject.instance().readEntry("VDLNetwork", "memory_points_layer", None)[0]
 
         """ Temporarly lines layer for the project """
-        mll_id = QgsProject.instance().readEntry("VDLTools", "memory_lines_layer", None)[0]
+        mll_id = QgsProject.instance().readEntry("VDLNetwork", "memory_lines_layer", None)[0]
         if mpl_id != -1 or mll_id != -1:
             for layer in list(QgsMapLayerRegistry.instance().mapLayers().values()):
                 if layer and layer.type() == QgsMapLayer.VectorLayer and layer.providerType() == "memory":
@@ -140,14 +140,14 @@ class ShowSettings(object):
         To delete the saved memory lines layer
         """
         self.__memoryLinesLayer = None
-        QgsProject.instance().writeEntry("VDLTools", "memory_lines_layer", None)
+        QgsProject.instance().writeEntry("VDLNetwork", "memory_lines_layer", None)
 
     def __memoryPointsLayerDeleted(self):
         """
         To delete the saved memory points layer
         """
         self.__memoryPointsLayer = None
-        QgsProject.instance().writeEntry("VDLTools", "memory_points_layer", None)
+        QgsProject.instance().writeEntry("VDLNetwork", "memory_points_layer", None)
 
     @property
     def pointsLayer(self):
@@ -216,7 +216,7 @@ class ShowSettings(object):
         if pointsLayer:
             layer_id = pointsLayer.id()
             self.__memoryPointsLayer.layerDeleted.connect(self.__memoryPointsLayerDeleted)
-        QgsProject.instance().writeEntry("VDLTools", "memory_points_layer", layer_id)
+        QgsProject.instance().writeEntry("VDLNetwork", "memory_points_layer", layer_id)
 
     @linesLayer.setter
     def linesLayer(self, linesLayer):
@@ -283,7 +283,7 @@ class ShowSettings(object):
         if self.__linesLayer:
             layer_id = self.__linesLayer.id()
             self.__memoryLinesLayer.layerDeleted.connect(self.__memoryLinesLayerDeleted)
-        QgsProject.instance().writeEntry("VDLTools", "memory_lines_layer", layer_id)
+        QgsProject.instance().writeEntry("VDLNetwork", "memory_lines_layer", layer_id)
         self.__cancel()
 
     @configTable.setter
@@ -294,7 +294,7 @@ class ShowSettings(object):
         """
         self.__configTable = configTable
         if configTable is not None:
-            QgsProject.instance().writeEntry("VDLTools", "config_table", configTable)
+            QgsProject.instance().writeEntry("VDLNetwork", "config_table", configTable)
 
     @mntUrl.setter
     def mntUrl(self, mntUrl):
@@ -304,7 +304,7 @@ class ShowSettings(object):
         """
         self.__mntUrl = mntUrl
         if mntUrl is not None:
-            QgsProject.instance().writeEntry("VDLTools", "mnt_url", mntUrl)
+            QgsProject.instance().writeEntry("VDLNetwork", "mnt_url", mntUrl)
 
     @uriDb.setter
     def uriDb(self, uriDb):
@@ -314,7 +314,7 @@ class ShowSettings(object):
         """
         self.__uriDb = uriDb
         if uriDb is not None:
-            QgsProject.instance().writeEntry("VDLTools", "db_name", uriDb.database())
+            QgsProject.instance().writeEntry("VDLNetwork", "db_name", uriDb.database())
 
     @ctlDb.setter
     def ctlDb(self, ctlDb):
@@ -324,7 +324,7 @@ class ShowSettings(object):
         """
         self.__ctlDb = ctlDb
         if ctlDb is not None:
-            QgsProject.instance().writeEntry("VDLTools", "ctl_db_name", ctlDb.database())
+            QgsProject.instance().writeEntry("VDLNetwork", "ctl_db_name", ctlDb.database())
 
     @schemaDb.setter
     def schemaDb(self, schemaDb):
@@ -334,4 +334,4 @@ class ShowSettings(object):
         """
         self.__schemaDb = schemaDb
         if schemaDb is not None:
-            QgsProject.instance().writeEntry("VDLTools", "schema_db", schemaDb)
+            QgsProject.instance().writeEntry("VDLNetwork", "schema_db", schemaDb)
