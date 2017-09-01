@@ -24,7 +24,6 @@ from future.builtins import range
 from future.builtins import object
 
 from ..ui.show_settings_dialog import ShowSettingsDialog
-from ..ui.fields_settings_dialog import FieldsSettingsDialog
 from PyQt4.QtCore import (QCoreApplication,
                           QVariant)
 from qgis.core import (QgsProject,
@@ -68,7 +67,7 @@ class ShowSettings(object):
         """
 
         """ Url used to get mnt values on a line """
-        self.__mntUrl = QgsProject.instance().readEntry("VDLNetwork", "mnt_url", "None")[0]
+        #self.__mntUrl = QgsProject.instance().readEntry("VDLNetwork", "mnt_url", "None")[0]
 
         """ Config table in Database for importing new Lausanne data """
         self.__configTable = QgsProject.instance().readEntry("VDLNetwork", "config_table", None)[0]
@@ -77,16 +76,17 @@ class ShowSettings(object):
         dbName = QgsProject.instance().readEntry("VDLNetwork", "db_name", None)[0]
 
         """ Table in Database containing control values for importing new Lausanne data """
-        ctlDbName = QgsProject.instance().readEntry("VDLNetwork", "ctl_db_name", None)[0]
+        #ctlDbName = QgsProject.instance().readEntry("VDLNetwork", "ctl_db_name", None)[0]
 
         """ Schema of the Database used for importing new Lausanne data """
         self.__schemaDb = QgsProject.instance().readEntry("VDLNetwork", "schema_db", None)[0]
 
         """ Temporarly points layer for the project """
-        mpl_id = QgsProject.instance().readEntry("VDLNetwork", "memory_points_layer", None)[0]
+        #mpl_id = QgsProject.instance().readEntry("VDLNetwork", "memory_points_layer", None)[0]
 
         """ Temporarly lines layer for the project """
-        mll_id = QgsProject.instance().readEntry("VDLNetwork", "memory_lines_layer", None)[0]
+        #mll_id = QgsProject.instance().readEntry("VDLNetwork", "memory_lines_layer", None)[0]
+        '''
         if mpl_id != -1 or mll_id != -1:
             for layer in list(QgsMapLayerRegistry.instance().mapLayers().values()):
                 if layer and layer.type() == QgsMapLayer.VectorLayer and layer.providerType() == "memory":
@@ -96,15 +96,17 @@ class ShowSettings(object):
                     if layer.geometryType() == QGis.Line:
                         if layer.id() == mll_id:
                             self.__memoryLinesLayer = layer
+        '''
         if dbName != "":
             usedDbs = DBConnector.getUsedDatabases()
             if dbName in list(usedDbs.keys()):
                 self.__uriDb = usedDbs[dbName]
+        '''
         if ctlDbName != "":
             usedDbs = DBConnector.getUsedDatabases()
             if ctlDbName in list(usedDbs.keys()):
                 self.__ctlDb = usedDbs[ctlDbName]
-
+        '''
     def start(self):
         """
         To start the show settings, meaning display a Show Settings Dialog
@@ -121,20 +123,20 @@ class ShowSettings(object):
         When the Ok button in Show Settings Dialog is pushed
         """
         self.__showDlg.accept()
-        self.linesLayer = self.__showDlg.linesLayer()
-        self.pointsLayer = self.__showDlg.pointsLayer()
+        #self.linesLayer = self.__showDlg.linesLayer()
+        #self.pointsLayer = self.__showDlg.pointsLayer()
         self.configTable = self.__showDlg.configTable()
         self.uriDb = self.__showDlg.uriDb()
-        self.ctlDb = self.__showDlg.ctlDb()
+        #self.ctlDb = self.__showDlg.ctlDb()
         self.schemaDb = self.__showDlg.schemaDb()
-        self.mntUrl = self.__showDlg.mntUrl()
+        #self.mntUrl = self.__showDlg.mntUrl()
 
     def __onCancel(self):
         """
         When the Cancel button in Show Settings Dialog is pushed
         """
         self.__showDlg.reject()
-
+    '''
     def __memoryLinesLayerDeleted(self):
         """
         To delete the saved memory lines layer
@@ -164,7 +166,7 @@ class ShowSettings(object):
         :return: saved memory lines layer
         """
         return self.__memoryLinesLayer
-
+    '''
     @property
     def configTable(self):
         """
@@ -172,7 +174,7 @@ class ShowSettings(object):
         :return: saved config table
         """
         return self.__configTable
-
+    '''
     @property
     def mntUrl(self):
         """
@@ -180,7 +182,7 @@ class ShowSettings(object):
         :return: saved mnt url
         """
         return self.__mntUrl
-
+    '''
     @property
     def uriDb(self):
         """
@@ -188,7 +190,7 @@ class ShowSettings(object):
         :return: saved uri import database
         """
         return self.__uriDb
-
+    '''
     @property
     def ctlDb(self):
         """
@@ -196,7 +198,7 @@ class ShowSettings(object):
         :return: saved uri control database
         """
         return self.__ctlDb
-
+    '''
     @property
     def schemaDb(self):
         """
@@ -204,7 +206,7 @@ class ShowSettings(object):
         :return: saved schema import database
         """
         return self.__schemaDb
-
+    '''
     @pointsLayer.setter
     def pointsLayer(self, pointsLayer):
         """
@@ -240,19 +242,20 @@ class ShowSettings(object):
                 self.__fieldsDlg.show()
             else:
                 self.reallySetLinesLayer()
-
+    '''
+    '''
     def __onFieldsCancel(self):
         """
         When the Cancel button in Fields Settings Dialog is pushed
         """
         self.__fieldsDlg.reject()
-
+    '''
     def __cancel(self):
         """
         To cancel used variables
         """
         self.__linesLayer = None
-
+    '''
     def __onFieldsOk(self):
         """
         When the Ok button in Fields Settings Dialog is pushed
@@ -285,7 +288,7 @@ class ShowSettings(object):
             self.__memoryLinesLayer.layerDeleted.connect(self.__memoryLinesLayerDeleted)
         QgsProject.instance().writeEntry("VDLNetwork", "memory_lines_layer", layer_id)
         self.__cancel()
-
+    '''
     @configTable.setter
     def configTable(self, configTable):
         """
@@ -295,7 +298,7 @@ class ShowSettings(object):
         self.__configTable = configTable
         if configTable is not None:
             QgsProject.instance().writeEntry("VDLNetwork", "config_table", configTable)
-
+    '''
     @mntUrl.setter
     def mntUrl(self, mntUrl):
         """
@@ -305,7 +308,7 @@ class ShowSettings(object):
         self.__mntUrl = mntUrl
         if mntUrl is not None:
             QgsProject.instance().writeEntry("VDLNetwork", "mnt_url", mntUrl)
-
+    '''
     @uriDb.setter
     def uriDb(self, uriDb):
         """
@@ -315,7 +318,7 @@ class ShowSettings(object):
         self.__uriDb = uriDb
         if uriDb is not None:
             QgsProject.instance().writeEntry("VDLNetwork", "db_name", uriDb.database())
-
+    '''
     @ctlDb.setter
     def ctlDb(self, ctlDb):
         """
@@ -325,7 +328,7 @@ class ShowSettings(object):
         self.__ctlDb = ctlDb
         if ctlDb is not None:
             QgsProject.instance().writeEntry("VDLNetwork", "ctl_db_name", ctlDb.database())
-
+    '''
     @schemaDb.setter
     def schemaDb(self, schemaDb):
         """

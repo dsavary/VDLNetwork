@@ -30,9 +30,6 @@ from PyQt4.QtGui import (QDialog,
                          QPushButton,
                          QLabel,
                          QComboBox)
-from qgis.core import (QgsMapLayer,
-                       QgsMapLayerRegistry,
-                       QGis)
 from PyQt4.QtCore import QCoreApplication
 from ..core.db_connector import DBConnector
 from ..core.signal import Signal
@@ -67,15 +64,18 @@ class ShowSettingsDialog(QDialog):
         self.__schemas = []
         self.__dbs = DBConnector.getUsedDatabases()
 
+        '''
         for layer in list(QgsMapLayerRegistry.instance().mapLayers().values()):
             if layer is not None and layer.type() == QgsMapLayer.VectorLayer and layer.providerType() == "memory":
                 if layer.geometryType() == QGis.Point:
                     self.__pointsLayers.append(layer)
                 if layer.geometryType() == QGis.Line:
                     self.__linesLayers.append(layer)
+        '''
         self.resize(450, 200)
         self.__layout = QGridLayout()
 
+        '''
         pointLabel = QLabel(QCoreApplication.translate("VDLNetwork", "Working points layer : "))
         pointLabel.setMinimumHeight(20)
         pointLabel.setMinimumWidth(50)
@@ -109,6 +109,7 @@ class ShowSettingsDialog(QDialog):
         if self.__memoryLinesLayer is not None:
             if self.__memoryLinesLayer in self.__linesLayers:
                 self.__lineCombo.setCurrentIndex(self.__linesLayers.index(self.__memoryLinesLayer)+1)
+        '''
 
         dbLabel = QLabel(QCoreApplication.translate("VDLNetwork", "Control database : "))
         dbLabel.setMinimumHeight(20)
@@ -145,6 +146,7 @@ class ShowSettingsDialog(QDialog):
         self.__tableCombo.addItem("")
         self.__layout.addWidget(self.__tableCombo, 4, 2)
 
+        '''
         mntLabel = QLabel(QCoreApplication.translate("VDLNetwork", "Url for MNT : "))
         schemaLabel.setMinimumHeight(20)
         schemaLabel.setMinimumWidth(50)
@@ -171,6 +173,7 @@ class ShowSettingsDialog(QDialog):
         for db in list(self.__dbs.keys()):
             self.__ctlCombo.addItem(db)
         self.__layout.addWidget(self.__ctlCombo, 6, 2)
+        '''
 
         self.__okButton = QPushButton(QCoreApplication.translate("VDLNetwork", "OK"))
         self.__okButton.setMinimumHeight(20)
@@ -188,7 +191,7 @@ class ShowSettingsDialog(QDialog):
         self.__schemaCombo.currentIndexChanged.connect(self.__schemaComboChanged)
         self.__tableCombo.currentIndexChanged.connect(self.__tableComboChanged)
 
-        self.__ctlCombo.currentIndexChanged.connect(self.__ctlComboChanged)
+        #self.__ctlCombo.currentIndexChanged.connect(self.__ctlComboChanged)
 
         if self.__uriDb is not None:
             if self.__uriDb.database() in list(self.__dbs.keys()):
@@ -263,7 +266,7 @@ class ShowSettingsDialog(QDialog):
                 if self.__configTable is not None:
                     if self.__configTable in self.__tables:
                         self.__tableCombo.setCurrentIndex(self.__tables.index(self.__configTable) + 1)
-
+    '''
     def __lineComboChanged(self):
         """
         To remove blank item when another one is selected
@@ -277,6 +280,7 @@ class ShowSettingsDialog(QDialog):
         """
         if self.__pointCombo.itemText(0) == "":
             self.__pointCombo.removeItem(0)
+    '''
 
     def __tableComboChanged(self):
         """
@@ -302,14 +306,14 @@ class ShowSettingsDialog(QDialog):
             self.__schemaCombo.removeItem(0)
         if self.schemaDb() is not None:
             self.__setTableCombo(self.uriDb(), self.schemaDb())
-
+    '''
     def __ctlComboChanged(self):
         """
         When the selection in ctl combo has changed
         """
         if self.__ctlCombo.itemText(0) == "":
             self.__ctlCombo.removeItem(0)
-
+    '''
     def okButton(self):
         """
         To get the ok button instance
@@ -323,6 +327,8 @@ class ShowSettingsDialog(QDialog):
         :return: cancel button instance
         """
         return self.__cancelButton
+
+    '''
 
     def pointsLayer(self):
         """
@@ -345,7 +351,7 @@ class ShowSettingsDialog(QDialog):
             return None
         else:
             return self.__linesLayers[index]
-
+    '''
     def configTable(self):
         """
         To get the selected config table
@@ -378,7 +384,7 @@ class ShowSettingsDialog(QDialog):
             return None
         else:
             return self.__schemas[index]
-
+    '''
     def mntUrl(self):
         """
         To get selected MN url
@@ -396,3 +402,4 @@ class ShowSettingsDialog(QDialog):
             return None
         else:
             return self.__dbs[list(self.__dbs.keys())[index]]
+    '''
