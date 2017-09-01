@@ -169,16 +169,23 @@ class VDLNetwork:
     def initGui(self):
         """Create the menu entries and toolbar icons inside the QGIS GUI."""
 
+        # base tool disable
         icon_path = ':/plugins/VDLNetwork/icon.png'
         self.add_action(
             icon_path,
             text=self.tr(u'VDLNetwork'),
             callback=self.run,
+            enabled_flag=False,
+            add_to_menu=False,
+            add_to_toolbar=False,
             parent=self.iface.mainWindow())
+        # Settings tool
         self.showSettings = ShowSettings(self.iface)
         self.add_action(':/plugins/VDLNetwork/icons/settings_icon.png',u"Paramètres",self.showSettings.start, True,True,False,'','',self.iface.mainWindow())
+        # Control tool
         self.controlTool = ControlTool(self.iface)
         self.add_action(':/plugins/VDLNetwork/icons/control_icon.png',"Make control requests on selected area",self.controlTool.setTool,True,True,True,'','',self.iface.mainWindow())
+        # Take settings for control tool
         self.controlTool.ownSettings = self.showSettings
 
 

@@ -61,7 +61,7 @@ class ControlTool(AreaTool):
         self.ownSettings = None
         self.__crs = None
         self.__registry = QgsMapLayerRegistry.instance()        # définition du registre des couches dans le projet
-        self.tableConfig = 'usr_control_request'                # nom de la table dans la base de données qui liste tous les contrôles possible
+        self.tableConfig = None                                 # nom de la table dans la base de données qui liste tous les contrôles possible
         self.__layerCfgControl = None                           # nom de la couche dans le projet qui correspond à la table de la liste des contrôles
         self.__lrequests = []                                   # liste des requêtes actives
         self.areaMax = 1000000                                  # tolérance de surface max. pour lancer un contrôle
@@ -87,20 +87,30 @@ class ControlTool(AreaTool):
             self.__iface.messageBar().pushMessage(QCoreApplication.translate("VDLNetwork", "No settings given !!"),
                                                   level=QgsMessageBar.CRITICAL, duration=0)
             return
-        if self.ownSettings.ctlDb is None:
-            self.__iface.messageBar().pushMessage(QCoreApplication.translate("VDLNetwork", "No control db given !!"),
+        if self.ownSettings.uriDb is None or self.ownSettings.configTable is None:
+            self.__iface.messageBar().pushMessage(QCoreApplication.translate("VDLNetwork", "No control db and tables given !!"),
                                                   level=QgsMessageBar.CRITICAL, duration=0)
             return
+        else:
+            self.connector = DBConnector(self.ownSettings.uriDb, self.__iface)
+            self.db = self.connector.setConnection()
         """
         Test si la couche / table qui contient l'ensemble des contrôles existe bien dans le projet
         """
+        if self.db:
+            self.tableConfig = self.ownSettings.configTable
+            self.schemaDb = self.ownSettings.schemaDb
+            uricfg = QgsDataSourceURI()
+            uricfg.setConnection(self.db.hostName(),str(self.db.port()), self.db.databaseName(),self.db.userName(),self.db.password())
+            uricfg.setDataSource('qwat_vl',self.tableConfig,None,"","id")
+            self.__layerCfgControl = QgsVectorLayer(uricfg.uri(),u"Liste des contrôles", "postgres")  #définition d'une couche QMapLayer au niveau QGIS
 
-        try:
-            self.__layerCfgControl = (l for l in self.__registry.mapLayers().values() if QgsDataSourceURI(l.source()).table() == self.tableConfig and hasattr(l, 'providerType') and l.providerType() == 'postgres').next()
-        except StopIteration:
-            textConfigLayer = u"La couche qui définit la liste des contrôles possible a mal été définie ou n'existe pas dans le projet, veuilliez l'ajouter au projet"
-            self.__iface.messageBar().pushMessage(textConfigLayer, level=QgsMessageBar.CRITICAL, duration=5)
-            self.__layerCfgControl = None
+            '''
+            # par requête SQL sans définir de couche avec l'API QGIS
+            query = self.db.exec_("""SELECT * FROM """+ self.schemaDb+ """.""" + self.tableConfig + """ WHERE active is true ORDER BY 1""")
+            while query.next():
+                print query.value(0)
+            '''
 
         """
         Test si la zone de contrôle a bien été définie par l'utilisateur
@@ -168,7 +178,7 @@ class ControlTool(AreaTool):
         """
         self.__chooseDlg.accept()
 
-        self.__connector = DBConnector(self.ownSettings.ctlDb, self.__iface)
+        self.__connector = DBConnector(self.ownSettings.uriDb, self.__iface)
         self.__db = self.__connector.setConnection()
 
         if self.__db is not None and self.geom.area() > 0:
@@ -216,8 +226,6 @@ class ControlTool(AreaTool):
                 uri.setDataSource('',query_fct,q[u"geom_name"],"",q[u"key_attribute"])
                 layer = QgsVectorLayer(uri.uri(),q[u"layer_name"], "postgres")
 
-                #print(layer.name())
-                #print(layer.featureCount())
                 totalError = totalError + layer.featureCount()
                 if layer.featureCount() > 0:
                     outputLayers.append(layer)
@@ -276,6 +284,8 @@ class ControlTool(AreaTool):
         self.geom = None # supprimer la géométrie définie
         self.__lrequests = [] # vider la liste des requêtes actives
 
+
+# version précédente code à supprimer
 '''
     def __request1(self):
         """

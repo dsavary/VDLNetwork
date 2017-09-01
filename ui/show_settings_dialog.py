@@ -110,7 +110,7 @@ class ShowSettingsDialog(QDialog):
             if self.__memoryLinesLayer in self.__linesLayers:
                 self.__lineCombo.setCurrentIndex(self.__linesLayers.index(self.__memoryLinesLayer)+1)
 
-        dbLabel = QLabel(QCoreApplication.translate("VDLNetwork", "Import database : "))
+        dbLabel = QLabel(QCoreApplication.translate("VDLNetwork", "Control database : "))
         dbLabel.setMinimumHeight(20)
         dbLabel.setMinimumWidth(50)
         self.__layout.addWidget(dbLabel, 2, 1)
@@ -123,7 +123,7 @@ class ShowSettingsDialog(QDialog):
             self.__dbCombo.addItem(db)
         self.__layout.addWidget(self.__dbCombo, 2, 2)
 
-        schemaLabel = QLabel(QCoreApplication.translate("VDLNetwork", "Database schema : "))
+        schemaLabel = QLabel(QCoreApplication.translate("VDLNetwork", "Control schema : "))
         schemaLabel.setMinimumHeight(20)
         schemaLabel.setMinimumWidth(50)
         self.__layout.addWidget(schemaLabel, 3, 1)
@@ -134,7 +134,7 @@ class ShowSettingsDialog(QDialog):
         self.__schemaCombo.addItem("")
         self.__layout.addWidget(self.__schemaCombo, 3, 2)
 
-        tableLabel = QLabel(QCoreApplication.translate("VDLNetwork", "Config table : "))
+        tableLabel = QLabel(QCoreApplication.translate("VDLNetwork", "Control table : "))
         tableLabel.setMinimumHeight(20)
         tableLabel.setMinimumWidth(50)
         self.__layout.addWidget(tableLabel, 4, 1)
