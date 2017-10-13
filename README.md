@@ -12,3 +12,4 @@ Voir la démo ci-dessous
 Voir la démo ci-dessous
 
 
+![Utilisation outils de contrôle (plugin)](./gifs/pluginVDLNetwok_control_tool.gif)
