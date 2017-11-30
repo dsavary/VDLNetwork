@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="225c1869-cf9c-4fb8-8e32-846781b9f9ce" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/choose_control_dialog.py" afterPath="$PROJECT_DIR$/ui/choose_control_dialog.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="VDLNetwork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,8 +26,8 @@
       <file leaf-file-name="choose_control_dialog.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ui/choose_control_dialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31547016">
-              <caret line="51" column="47" selection-start-line="51" selection-start-column="47" selection-end-line="51" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.694332">
+              <caret line="142" column="192" selection-start-line="142" selection-start-column="192" selection-end-line="142" selection-end-column="192" />
               <folding>
                 <element signature="e#1196#1565#0" expanded="true" />
               </folding>
@@ -792,8 +791,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/choose_control_dialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31547016">
-          <caret line="51" column="47" selection-start-line="51" selection-start-column="47" selection-end-line="51" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.694332">
+          <caret line="142" column="192" selection-start-line="142" selection-start-column="192" selection-end-line="142" selection-end-column="192" />
           <folding>
             <element signature="e#1196#1565#0" expanded="true" />
           </folding>

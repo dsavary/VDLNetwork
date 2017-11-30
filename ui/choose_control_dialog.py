@@ -140,6 +140,12 @@ class ChooseControlDialog(QDialog):
         self.__layout.addWidget(self.__okButton, 100, 0)
         self.__layout.addWidget(self.__cancelButton, 100, 1)
 
+        helpText = u"""<html><head/><body><p><a href="https://golux.lausanne.ch/goeland/document/document_view2.php?iddocument=1059148">Lien sur la description des contrôles (document goéland) </span></a></p></body></html>"""
+        self.__linkHelp = QLabel(helpText)
+        self.__linkHelp.setOpenExternalLinks(True)
+        #self.__linkHelp.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+        self.__layout.addWidget(self.__linkHelp, 110, 0)
+
         self.setLayout(self.__layout)
 
         self.__allSelect.clicked.connect(self.allSelect)
