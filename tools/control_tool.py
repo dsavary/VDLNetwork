@@ -102,7 +102,7 @@ class ControlTool(AreaTool):
             self.schemaDb = self.ownSettings.schemaDb
             uricfg = QgsDataSourceURI()
             uricfg.setConnection(self.db.hostName(),str(self.db.port()), self.db.databaseName(),self.db.userName(),self.db.password())
-            uricfg.setDataSource('qwat_vl',self.tableConfig,None,"","id")
+            uricfg.setDataSource(self.schemaDb,self.tableConfig,None,"","id")
             self.__layerCfgControl = QgsVectorLayer(uricfg.uri(),u"Liste des contrôles", "postgres")  #définition d'une couche QMapLayer au niveau QGIS
 
             '''

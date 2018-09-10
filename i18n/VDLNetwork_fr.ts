@@ -25,7 +25,7 @@
         <translation>Contrôle</translation>
     </message>
     <message>
-        <location filename="../tools/control_tool.py" line="98"/>
+        <location filename="../tools/control_tool.py" line="91"/>
         <source>No control db given !!</source>
         <translation>Pas de bd à contrôler choisie !!</translation>
     </message>
